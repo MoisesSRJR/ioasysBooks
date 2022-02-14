@@ -1,5 +1,12 @@
-import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-import useScrollBar from '../hooks/useScrollBar';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
+import useScrollBar from "../hooks/useScrollBar";
 
 type ModalProviderProps = {
   children: ReactNode;
@@ -18,7 +25,7 @@ export function ModalProvider({ children }: ModalProviderProps) {
   // Const para abrir o modal
   const [isModalOpen, setModalOpen] = useState(false);
   // Const que abre o modal pelo id
-  const [modalId, setModalId] = useState('');
+  const [modalId, setModalId] = useState("");
   // Const que usa o scrollBar
   const { hideScrollBar, showScrollBar } = useScrollBar();
   const openModal = useCallback(
@@ -27,12 +34,12 @@ export function ModalProvider({ children }: ModalProviderProps) {
       setModalOpen(true);
       hideScrollBar();
     },
-    [isModalOpen, modalId],
+    [isModalOpen, modalId]
   );
 
   const removeModal = useCallback(() => {
     setModalOpen(false);
-    setModalId('');
+    setModalId("");
     showScrollBar();
   }, [isModalOpen, modalId]);
 
@@ -45,7 +52,9 @@ export function ModalProvider({ children }: ModalProviderProps) {
     };
   }, [isModalOpen, modalId]);
 
-  return <ModalContext.Provider value={modalProps}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={modalProps}>{children}</ModalContext.Provider>
+  );
 }
 
 export function useModal(): ModalContextData {

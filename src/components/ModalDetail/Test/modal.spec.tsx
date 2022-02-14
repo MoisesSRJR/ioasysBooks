@@ -10,7 +10,7 @@ it('Test renders component modal', () => {
   const modal = document.createElement('modal');
   ReactDOM.render(
     <Router>
-      <Detail />
+      {/* <Detail book={book}/> */}
     </Router>,
 
     modal,

@@ -22,7 +22,8 @@ const Container = styled.div`
     margin-right: 10px;
     color: white;
     font-size: 16px;
-  }
+
+    }
 `;
 
 const ContainerMobile = styled.div`

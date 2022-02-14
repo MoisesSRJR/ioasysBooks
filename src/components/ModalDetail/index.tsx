@@ -15,14 +15,17 @@ import {
 import { VscChromeClose } from "react-icons/vsc";
 import { useModal } from "../../context/ModalContext";
 import { Modal } from "../Modal";
-import booksImg from "../../assets/Books.png";
 import quotesImg from "../../assets/Quotes.png";
 import useWindowSize from "../../hooks/useWindowSize";
+import { tabBooks } from "../../context/books";
 
-export function Detail() {
+interface CardProps {
+  book?: tabBooks;
+}
+
+export function Detail({ book }: CardProps) {
   // Const para remover o modal
   const { removeModal } = useModal();
-
   // Const para utilizar o windows size
   const { width } = useWindowSize();
 
@@ -38,57 +41,51 @@ export function Detail() {
           <div id="modal" className="show-modal">
             <Container>
               <ContainerImg>
-                <img src={booksImg} />
+                <img src={book?.imageUrl} />
               </ContainerImg>
               <ContainerImg>
                 <div className="title">
-                  <p>Change By Design Second line exampl...</p>
+                  <p>{book?.title}</p>
                 </div>
                 <div className="subTitle">
-                  <p>Tim Brown, Julie Zhuo, Fried Maximiilian</p>
+                  <p>{book?.authors}</p>
                 </div>
                 <p>INFORMAÇÕES</p>
                 <div className="information">
                   <Row>
                     <p>Páginas</p>
-                    <p className="hover">304 Páginas</p>
+                    <p className="hover">{book?.pageCount} Páginas</p>
                   </Row>
                   <Row>
                     <p>Editora</p>
-                    <p className="hover">Editora Loyola</p>
+                    <p className="hover">{book?.publisher}</p>
                   </Row>
                   <Row>
                     <p>Publicação</p>
-                    <p className="hover">2020</p>
+                    <p className="hover">{book?.published}</p>
                   </Row>
                   <Row>
                     <p>Idioma</p>
-                    <p className="hover">Inglês</p>
+                    <p className="hover">{book?.language}</p>
                   </Row>
                   <Row>
                     <p>Título Original</p>
-                    <p className="hover">Change By Design</p>
+                    <p className="hover">{book?.title}</p>
                   </Row>
                   <Row>
                     <p>ISBN-10</p>
-                    <p className="hover">0067949933</p>
+                    <p className="hover">{book?.isbn10}</p>
                   </Row>
                   <Row>
                     <p>ISBN-13</p>
-                    <p className="hover">978-9403204055</p>
+                    <p className="hover">{book?.isbn13}</p>
                   </Row>
                 </div>
                 <p>RESENHA DA EDITORA</p>
                 <div className="description">
                   <p>
                     {" "}
-                    <img src={quotesImg} /> Resenha da editora The subject of
-                    “design thinking” is the rage at business schools,
-                    throughout corporations, and increasingly in the popular
-                    press—due in large part to the work of IDEO, a leading
-                    design firm, and its celebrated CEO, Tim Brown, who uses
-                    this book to show how the techniques and strategies of
-                    design belong at every level of business.
+                    <img src={quotesImg} /> {book?.description}
                   </p>
                 </div>
               </ContainerImg>
@@ -105,57 +102,51 @@ export function Detail() {
           <div id="modal" data-testid="register-modal" className="show-modal">
             <ContainerMobile>
               <ContainerImgMobile>
-                <img src={booksImg} />
+                <img src={book?.imageUrl} />
               </ContainerImgMobile>
               <ContainerImgMobile>
                 <div className="title">
-                  <p>Change By Design Second line exampl...</p>
+                  <p>{book?.title}</p>
                 </div>
                 <div className="subTitle">
-                  <p>Tim Brown, Julie Zhuo, Fried Maximiilian</p>
+                  <p>{book?.authors}</p>
                 </div>
                 <p>INFORMAÇÕES</p>
                 <div className="information">
                   <Row>
                     <p>Páginas</p>
-                    <p className="hover">304 Páginas</p>
+                    <p className="hover">{book?.pageCount} Páginas</p>
                   </Row>
                   <Row>
                     <p>Editora</p>
-                    <p className="hover">Editora Loyola</p>
+                    <p className="hover">{book?.publisher}</p>
                   </Row>
                   <Row>
                     <p>Publicação</p>
-                    <p className="hover">2020</p>
+                    <p className="hover">{book?.published}</p>
                   </Row>
                   <Row>
                     <p>Idioma</p>
-                    <p className="hover">Inglês</p>
+                    <p className="hover">{book?.language}</p>
                   </Row>
                   <Row>
                     <p>Título Original</p>
-                    <p className="hover">Change By Design</p>
+                    <p className="hover">{book?.title}</p>
                   </Row>
                   <Row>
                     <p>ISBN-10</p>
-                    <p className="hover">0067949933</p>
+                    <p className="hover">{book?.isbn10}</p>
                   </Row>
                   <Row>
                     <p>ISBN-13</p>
-                    <p className="hover">978-9403204055</p>
+                    <p className="hover">{book?.isbn13}</p>
                   </Row>
                 </div>
                 <p>RESENHA DA EDITORA</p>
                 <div className="description">
                   <p>
                     {" "}
-                    <img src={quotesImg} /> Resenha da editora The subject of
-                    “design thinking” is the rage at business schools,
-                    throughout corporations, and increasingly in the popular
-                    press—due in large part to the work of IDEO, a leading
-                    design firm, and its celebrated CEO, Tim Brown, who uses
-                    this book to show how the techniques and strategies of
-                    design belong at every level of business.
+                    <img src={quotesImg} /> {book?.description}
                   </p>
                 </div>
               </ContainerImgMobile>

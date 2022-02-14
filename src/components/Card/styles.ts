@@ -20,9 +20,8 @@ const ContainerImg = styled.div`
   align-items: center;
 
   img {
-    width: 100%;
-    height: 100%;
-    margin-top: 12px;
+    width: 95%;
+    height: 95%;
   }
 `;
 
@@ -47,7 +46,7 @@ const ContainerText = styled.div`
 
   div.body {
     height: 70px;
-    width: 105px;
+    width: 100%;
 
     small {
       font-size: 12px;

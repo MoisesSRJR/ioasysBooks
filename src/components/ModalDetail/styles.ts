@@ -3,7 +3,7 @@ import colors from "../../styles/colors";
 
 const Container = styled.div`
   width: 830px;
-  height: 525px;
+  height: auto;
   display: flex;
   gap: 20px;
 
@@ -57,7 +57,7 @@ const ContainerImg = styled.div`
 
   img {
     width: 100%;
-    height: 105%;
+    height: 100%;
   }
 
   div.title {
@@ -89,7 +89,7 @@ const ContainerImg = styled.div`
   }
 
   div.description {
-    height: 125px;
+    height: auto;
     padding-right: 15px;
 
     img {
@@ -147,6 +147,7 @@ const ContainerImgMobile = styled.div`
   div.description {
     height: 165px;
     padding-right: 15px;
+
     img {
       width: 15px;
       height: 15px;
@@ -180,11 +181,14 @@ const Row = styled.div`
 `;
 
 const ButtonContainer = styled.div`
+  position: fixed;
+  top: 0px;
+  right: 0px;
   display: flex;
-  width: 100%;
   height: 65px;
   justify-content: flex-end;
   align-items: end;
+  z-index: 2;
 
   button {
     display: flex;

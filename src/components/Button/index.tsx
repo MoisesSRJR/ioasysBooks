@@ -3,6 +3,7 @@ import Container from "./styles";
 
 interface ButtonProps {
   label: string;
+  type: string;
 }
 
 export function Button({ label }: ButtonProps): JSX.Element {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../../styles/colors";
 
-const Container = styled.div`
+const Container = styled.button`
   background: white;
   width: 85px;
   height: 36px;
@@ -15,6 +15,7 @@ const Container = styled.div`
   font-weight: 500;
   margin-top: -17px;
   margin-right: 12px;
+  border: none;
 `;
 
 export default Container;

@@ -1,28 +1,36 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Container, ContainerImg, ContainerText } from "./styles";
 import bookImg from "../../assets/Book.png";
 import { useModal } from "../../context/ModalContext";
 import { Detail } from "../../components/ModalDetail";
+import { tabBooks, useTabBooks } from "../../context/books";
 
-export default function Card(): JSX.Element {
-  // Const para abrir modal
-  const { isModalOpen, modalId, openModal } = useModal();
+interface CardProps {
+  book: tabBooks;
+  onClick: () => void;
+}
+
+export default function Card({ book, onClick }: CardProps): JSX.Element {
   return (
-    <Container onClick={() => openModal("detail")}>
-      <ContainerImg>
-        <img src={bookImg} />
-      </ContainerImg>
-      <ContainerText>
-        <div className="header">
-          <small>The Power of Habit</small>
-          <br></br>
-          <small className="sub">Charles Duhigg</small>
-        </div>
-        <div className="body">
-          <small>150 páginas Editora Loyola Publicado em 2020</small>
-        </div>
-      </ContainerText>
-      {isModalOpen && modalId === "detail" && <Detail />}
+    <Container onClick={() => onClick()}>
+      <>
+        <ContainerImg>
+          <img src={book.imageUrl} />
+        </ContainerImg>
+        <ContainerText>
+          <div className="header">
+            <small>{book.title}</small>
+            <br></br>
+            <small className="sub">{book.authors}</small>
+          </div>
+          <div className="body">
+            <small>{book.pageCount} páginas </small>
+            <br></br>
+            <small>{book.publisher}</small> <br></br>
+            <small>Publicado em {book.published}</small>
+          </div>
+        </ContainerText>
+      </>
     </Container>
   );
 }

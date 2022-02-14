@@ -165,8 +165,9 @@ const ContainerBook = styled.div`
   gap: 16px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: 20px;
+  padding-left: 55px;
 `;
 
 const ContainerBookMobile = styled.div`
@@ -181,14 +182,13 @@ const ContainerBookMobile = styled.div`
 `;
 
 const Footer = styled.div`
-   width: 81%;
+   width: 100%;
   height: 80px;
   margin: auto;
   background-color: coral;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 `;
 
 const FooterMobile = styled.div`
@@ -198,6 +198,7 @@ const FooterMobile = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: coral;
 `;
 
 export { Container, ContainerTitle, ContainerBook, Footer, ContainerMobile, ContainerTitleMobile, ContainerBookMobile, FooterMobile };
